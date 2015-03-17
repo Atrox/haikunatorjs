@@ -3,7 +3,7 @@
 [![Build Status](https://img.shields.io/travis/AtroxDev/haikunatorjs.svg)](https://travis-ci.org/AtroxDev/haikunatorjs)
 [![NPM Version](https://img.shields.io/npm/v/haikunator.svg)](https://www.npmjs.com/package/haikunator)
 
-Generate Heroku-like random names to use in your javascript applications.
+Generate Heroku-like random names to use in your node applications.
 
 ## Installation
 ```
