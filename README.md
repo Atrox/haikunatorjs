@@ -1,7 +1,9 @@
 # HaikunatorJS
 
-[![Build Status](https://img.shields.io/travis/AtroxDev/haikunatorjs.svg)](https://travis-ci.org/AtroxDev/haikunatorjs)
-[![NPM Version](https://img.shields.io/npm/v/haikunator.svg)](https://www.npmjs.com/package/haikunator)
+[![Build Status](https://img.shields.io/travis/AtroxDev/haikunatorjs.svg?style=flat-square)](https://travis-ci.org/AtroxDev/haikunatorjs)
+[![Latest Version](https://img.shields.io/npm/v/haikunator.svg?style=flat-square)](https://www.npmjs.com/package/haikunator)
+[![Latest Version](https://img.shields.io/david/atroxdev/haikunatorjs.svg?style=flat-square)](https://pypi.python.org/pypi/haikunator)
+[![Latest Version](https://img.shields.io/david/dev/atroxdev/haikunatorjs.svg?style=flat-square)](https://pypi.python.org/pypi/haikunator)
 
 Generate Heroku-like random names to use in your node applications.
 
