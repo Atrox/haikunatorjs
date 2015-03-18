@@ -11,7 +11,7 @@ var adjs = [
     "free", "dry", "yellow", "orange", "gentle", "tight", "super", "royal", "broad",
     "steep", "flat", "square", "round", "mute", "noisy", "hushy", "raspy", "soft",
     "shrill", "rapid", "sweet", "curly", "calm", "jolly", "fancy", "plain", "shinny"
-]
+];
 var nouns = [
     "waterfall", "river", "breeze", "moon", "rain", "wind", "sea", "morning",
     "snow", "lake", "sunset", "pine", "shadow", "leaf", "dawn", "glitter",
@@ -26,26 +26,27 @@ var nouns = [
     "scene", "heart", "recipe", "union", "limit", "bread", "toast", "bonus",
     "lab", "mud", "mode", "poetry", "tooth", "hall", "king", "queen", "lion", "tiger",
     "penguin", "kiwi", "cake", "mouse", "rice", "coke", "hola", "salad", "hat"
-]
+];
 
-var haikunator = function(max, hex) {
+var haikunator = function (max, hex, delimiter) {
+    var suffix, adj, noun, sections, text = '';
+
+    max = typeof max !== 'undefined' ? max : 4;
+    delimiter = typeof delimiter !== 'undefined' ? delimiter : '-';
     if (hex === true) {
-        var suffix = '0123456789abcdef';
+        suffix = '0123456789abcdef';
     } else {
-        var suffix = '0123456789';
-    }
-    if (typeof max === 'undefined') {
-        max = 4;
+        suffix = '0123456789';
     }
 
-    var text = "";
-    var adj = adjs[Math.floor(Math.random() * adjs.length)];
-    var noun = nouns[Math.floor(Math.random() * nouns.length)];
+    adj = adjs[Math.floor(Math.random() * adjs.length)];
+    noun = nouns[Math.floor(Math.random() * nouns.length)];
 
     for (var i = 0; i < max; i++)
         text += suffix.charAt(Math.floor(Math.random() * suffix.length));
 
-    return adj + '-' + noun + '-' + text
-}
+    sections = [adj, noun, text];
+    return sections.filter(function (e) {return e === 0 || e}).join(delimiter);
+};
 
 module.exports = haikunator;

@@ -1,7 +1,7 @@
 {
   "name": "haikunator",
-  "version": "0.0.1",
-  "description": "Generate Heroku-like random names to use in your applications.",
+  "version": "0.1.0",
+  "description": "Generate Heroku-like random names to use in your node applications.",
   "main": "index.js",
   "scripts": {
     "test": "mocha test"

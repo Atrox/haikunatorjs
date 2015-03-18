@@ -14,18 +14,31 @@ npm install haikunator
 
 ## Usage
 
-Haikunator is pretty simple. There is nothing to configure.
+Haikunator is pretty simple.
 
 ```javascript
 var haikunate = require('haikunator');
 
-haikunate() // => "caring-butterfly-1337"
+// default usage
+haikunate() // => 'wispy-dust-1337'
 
 // custom length (default=4)
-haikunate(6) // => "caring-butterfly-133337"
+haikunate(6) // => 'patient-king-887265'
 
 // use hex instead of only numbers
-haikunate(4, true) // => "caring-butterfly-4cdc"
+haikunate(4, true) // => 'purple-breeze-98e1'
+
+// don't include a token
+haikunate(0) // => 'cold-wildflower'
+
+// use a different delimiter
+haikunate(4, false, '.') // => 'restless.sea.7976'
+
+// no token, space delimiter
+haikunate(0, false, ' ') // => 'delicate haze'
+
+// no token, empty delimiter
+haikunate(0, false, '') // => 'billowingleaf'
 ```
 
 ## Contributing
