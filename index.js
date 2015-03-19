@@ -29,7 +29,7 @@ var nouns = [
 ];
 
 var haikunator = function (max, hex, delimiter) {
-    var suffix, adj, noun, sections, text = '';
+    var suffix, adj, noun, sections, token = '';
 
     max = typeof max !== 'undefined' ? max : 4;
     delimiter = typeof delimiter !== 'undefined' ? delimiter : '-';
@@ -43,9 +43,9 @@ var haikunator = function (max, hex, delimiter) {
     noun = nouns[Math.floor(Math.random() * nouns.length)];
 
     for (var i = 0; i < max; i++)
-        text += suffix.charAt(Math.floor(Math.random() * suffix.length));
+        token += suffix.charAt(Math.floor(Math.random() * suffix.length));
 
-    sections = [adj, noun, text];
+    sections = [adj, noun, token];
     return sections.filter(function (e) {return e === 0 || e}).join(delimiter);
 };
 
