@@ -50,19 +50,19 @@ function extend(obj) {
 }
 
 var haikunator = function (opt) {
-  var i, adj, noun, sections, defaults, token = '';
+  var i, adj, noun, sections, defaults, token = "";
 
   defaults = {
-    delimiter: '-',
+    delimiter: "-",
     tokenLength: 4,
     tokenHex: false,
-    tokenChars: '0123456789'
+    tokenChars: "0123456789"
   };
 
   opt = extend(defaults, opt);
 
   if (opt.tokenHex === true) {
-    opt.tokenChars = '0123456789abcdef';
+    opt.tokenChars = "0123456789abcdef";
   }
 
   adj = adjs[Math.floor(Math.random() * adjs.length)];
