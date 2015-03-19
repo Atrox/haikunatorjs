@@ -28,26 +28,52 @@ var nouns = [
   "penguin", "kiwi", "cake", "mouse", "rice", "coke", "hola", "salad", "hat"
 ];
 
-var haikunator = function (max, hex, delimiter) {
-  var i, suffix, adj, noun, sections, token = '';
+function extend(obj) {
+  Array.prototype.slice.call(arguments, 1).forEach(function (source) {
+    var prop;
+    if (source) {
+      for (prop in source) {
+        if (source[prop].constructor === Object) {
+          if (!obj[prop] || obj[prop].constructor === Object) {
+            obj[prop] = obj[prop] || {};
+            extend(obj[prop], source[prop]);
+          } else {
+            obj[prop] = source[prop];
+          }
+        } else {
+          obj[prop] = source[prop];
+        }
+      }
+    }
+  });
+  return obj;
+}
 
-  max = (max !== undefined) ? max : 4;
-  delimiter = (delimiter !== undefined) ? delimiter : '-';
-  if (hex === true) {
-    suffix = '0123456789abcdef';
-  } else {
-    suffix = '0123456789';
+var haikunator = function (opt) {
+  var i, adj, noun, sections, defaults, token = '';
+
+  defaults = {
+    delimiter: '-',
+    tokenLength: 4,
+    tokenHex: false,
+    tokenChars: '0123456789'
+  };
+
+  opt = extend(defaults, opt);
+
+  if (opt.tokenHex === true) {
+    opt.tokenChars = '0123456789abcdef';
   }
 
   adj = adjs[Math.floor(Math.random() * adjs.length)];
   noun = nouns[Math.floor(Math.random() * nouns.length)];
 
-  for (i = 0; i < max; i++) {
-    token += suffix.charAt(Math.floor(Math.random() * suffix.length));
+  for (i = 0; i < opt.tokenLength; i++) {
+    token += opt.tokenChars.charAt(Math.floor(Math.random() * opt.tokenChars.length));
   }
 
   sections = [adj, noun, token];
-  return sections.filter(function (e) { return e === 0 || e; }).join(delimiter);
+  return sections.filter(function (e) { return e === 0 || e; }).join(opt.delimiter);
 };
 
 module.exports = haikunator;
