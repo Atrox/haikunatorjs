@@ -25,7 +25,7 @@ var haikunate = require('haikunator');
 haikunate() // => 'wispy-dust-1337'
 
 // custom length (default=4)
-haikunate({tokenLength: 4}) // => 'patient-king-887265'
+haikunate({tokenLength: 6}) // => 'patient-king-887265'
 
 // use hex instead of numbers
 haikunate({tokenHex: true}) // => 'purple-breeze-98e1'
