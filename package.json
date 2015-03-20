@@ -1,10 +1,11 @@
 {
   "name": "haikunator",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Generate Heroku-like random names to use in your node applications.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test"
+    "test": "istanbul cover _mocha",
+    "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,8 @@
   "homepage": "https://github.com/AtroxDev/haikunatorjs",
   "devDependencies": {
     "chai": "^2.1.2",
+    "coveralls": "^2.11.2",
+    "istanbul": "^0.3.8",
     "mocha": "^2.2.1"
   }
 }

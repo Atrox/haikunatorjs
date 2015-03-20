@@ -1,3 +1,4 @@
 node_modules
-.lock-wscript
 .idea/
+coverage/
+*.log
