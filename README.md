@@ -1,10 +1,10 @@
 # HaikunatorJS
 
-[![Build Status](https://img.shields.io/travis/AtroxDev/haikunatorjs.svg?style=flat-square)](https://travis-ci.org/AtroxDev/haikunatorjs)
+[![Build Status](https://img.shields.io/travis/Atrox/haikunatorjs.svg?style=flat-square)](https://travis-ci.org/Atrox/haikunatorjs)
 [![Latest Version](https://img.shields.io/npm/v/haikunator.svg?style=flat-square)](https://www.npmjs.com/package/haikunator)
-[![Dependency Status](https://img.shields.io/david/atroxdev/haikunatorjs.svg?style=flat-square)](https://david-dm.org/atroxdev/haikunatorjs)
-[![devDependency Status](https://img.shields.io/david/dev/atroxdev/haikunatorjs.svg?style=flat-square)](https://david-dm.org/atroxdev/haikunatorjs#info=devDependencies)
-[![Coverage Status](https://img.shields.io/coveralls/AtroxDev/haikunatorjs.svg?style=flat-square)](https://coveralls.io/r/AtroxDev/haikunatorjs)
+[![Dependency Status](https://img.shields.io/david/atrox/haikunatorjs.svg?style=flat-square)](https://david-dm.org/atrox/haikunatorjs)
+[![devDependency Status](https://img.shields.io/david/dev/atrox/haikunatorjs.svg?style=flat-square)](https://david-dm.org/atrox/haikunatorjs#info=devDependencies)
+[![Coverage Status](https://img.shields.io/coveralls/Atrox/haikunatorjs.svg?style=flat-square)](https://coveralls.io/r/Atrox/haikunatorjs)
 
 Generate Heroku-like random names to use in your node applications.
 
@@ -73,6 +73,6 @@ Everyone is encouraged to help improve this project. Here are a few ways you can
 
 Haikunator is also available in other languages. Check them out:
 
-- Python: https://github.com/AtroxDev/haikunator
+- Python: https://github.com/Atrox/haikunatorpy
 - Ruby: https://github.com/usmanbashir/haikunator
 - Go: https://github.com/yelinaung/go-haikunator

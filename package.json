@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/AtroxDev/haikunatorjs"
+    "url": "https://github.com/Atrox/haikunatorjs"
   },
   "keywords": [
     "haikunator",
@@ -23,9 +23,9 @@
   "author": "Atrox",
   "license": "GPLv3",
   "bugs": {
-    "url": "https://github.com/AtroxDev/haikunatorjs/issues"
+    "url": "https://github.com/Atrox/haikunatorjs/issues"
   },
-  "homepage": "https://github.com/AtroxDev/haikunatorjs",
+  "homepage": "https://github.com/Atrox/haikunatorjs",
   "devDependencies": {
     "chai": "^2.1.2",
     "coveralls": "^2.11.2",
