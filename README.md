@@ -64,8 +64,8 @@ haikunate({
 
 Everyone is encouraged to help improve this project. Here are a few ways you can help:
 
-- [Report bugs](https://github.com/atroxdev/haikunatorjs/issues)
-- Fix bugs and [submit pull requests](https://github.com/atroxdev/haikunatorjs/pulls)
+- [Report bugs](https://github.com/atrox/haikunatorjs/issues)
+- Fix bugs and [submit pull requests](https://github.com/atrox/haikunatorjs/pulls)
 - Write, clarify, or fix documentation
 - Suggest or add new features
 
@@ -73,6 +73,7 @@ Everyone is encouraged to help improve this project. Here are a few ways you can
 
 Haikunator is also available in other languages. Check them out:
 
+- PHP: https://github.com/Atrox/haikunatorphp
 - Python: https://github.com/Atrox/haikunatorpy
 - Ruby: https://github.com/usmanbashir/haikunator
 - Go: https://github.com/yelinaung/go-haikunator
