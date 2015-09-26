@@ -2,7 +2,6 @@ var assert = require("chai").assert,
   haikunate = require("../src/haikunator");
 
 
-
 describe("testing haikunate", () => {
   it("should return 4 digits", () => {
     assert.match(haikunate(), /((?:[a-z][a-z]+))(-)((?:[a-z][a-z]+))(-)(\d{4})$/i);

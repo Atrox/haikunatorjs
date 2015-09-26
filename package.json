@@ -1,6 +1,6 @@
 {
   "name": "haikunator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Generate Heroku-like random names to use in your node applications.",
   "main": "lib/haikunator.js",
   "scripts": {

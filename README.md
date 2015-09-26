@@ -73,7 +73,10 @@ Everyone is encouraged to help improve this project. Here are a few ways you can
 
 Haikunator is also available in other languages. Check them out:
 
-- PHP: https://github.com/Atrox/haikunatorphp
+- .NET: https://github.com/Atrox/haikunator.net
 - Python: https://github.com/Atrox/haikunatorpy
+- PHP: https://github.com/Atrox/haikunatorphp
+- Java: https://github.com/Atrox/haikunatorjava
+- Dart: https://github.com/Atrox/haikunatordart
 - Ruby: https://github.com/usmanbashir/haikunator
 - Go: https://github.com/yelinaung/go-haikunator
