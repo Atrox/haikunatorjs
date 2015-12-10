@@ -1,6 +1,6 @@
 {
   "name": "haikunator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Generate Heroku-like random names to use in your node applications.",
   "main": "lib/haikunator.js",
   "scripts": {
@@ -23,7 +23,7 @@
     "generator"
   ],
   "author": "Atrox",
-  "license": "GPL-3.0",
+  "license": "BSD-3-Clause",
   "bugs": {
     "url": "https://github.com/Atrox/haikunatorjs/issues"
   },
