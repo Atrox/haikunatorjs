@@ -28,18 +28,29 @@ let nouns = [
   "penguin", "kiwi", "cake", "mouse", "rice", "coke", "hola", "salad", "hat"
 ];
 
-export default function haikunate({delimiter='-', tokenLength=4, tokenHex=false, tokenChars="0123456789"} = {}) {
-  let adj, noun, i, sections, token = "";
+export default function haikunate({delimiter='-', tokenLength=4, tokenHex=false, tokenChars="0123456789", seed} = {}) {
+  let adj, noun, i, sections, random, token = "";
 
   if (tokenHex === true) tokenChars = "0123456789abcdef";
 
-  adj = adjs[Math.floor(Math.random() * adjs.length)];
-  noun = nouns[Math.floor(Math.random() * nouns.length)];
-
-  for (i = 0; i < tokenLength; i++) {
-    token += tokenChars.charAt(Math.floor(Math.random() * tokenChars.length));
+  // determine the random function to use
+  if (seed == null) {
+    random = Math.random;
+  } else {
+    let RandomGenerator = require('random-seed');
+    random = new RandomGenerator(seed).random;
   }
 
+  // pick adjective and noun
+  adj = adjs[Math.floor(random() * adjs.length)];
+  noun = nouns[Math.floor(random() * nouns.length)];
+
+  // create hex token
+  for (i = 0; i < tokenLength; i++) {
+    token += tokenChars.charAt(Math.floor(random() * tokenChars.length));
+  }
+
+  // create result and return
   sections = [adj, noun, token];
   return sections.filter(function (e) {
     return e === 0 || e;

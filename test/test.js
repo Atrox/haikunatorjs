@@ -42,4 +42,10 @@ describe("testing haikunate", () => {
   it("permits custom token chars", () => {
     assert.match(haikunate({tokenChars: "A"}), /((?:[a-z][a-z]+))(-)((?:[a-z][a-z]+))(-)(AAAA)$/i);
   });
+
+  it("returns the same name if seed is provided", () => {
+    let name1 = haikunate({seed: "foo"});
+    let name2 = haikunate({seed: "foo"});
+    assert.equal(name1, name2);
+  });
 });
