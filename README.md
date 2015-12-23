@@ -55,7 +55,8 @@ haikunate({
   delimiter: "-",
   tokenLength: 4,
   tokenHex: false,
-  tokenChars: "0123456789"
+  tokenChars: "0123456789",
+  seed: null
 });
 ```
 *If ```tokenHex``` is true, it overrides any tokens specified in ```tokenChars```*
@@ -77,6 +78,6 @@ Haikunator is also available in other languages. Check them out:
 - Python: https://github.com/Atrox/haikunatorpy
 - PHP: https://github.com/Atrox/haikunatorphp
 - Java: https://github.com/Atrox/haikunatorjava
+- Go: https://github.com/Atrox/haikunatorgo
 - Dart: https://github.com/Atrox/haikunatordart
 - Ruby: https://github.com/usmanbashir/haikunator
-- Go: https://github.com/yelinaung/go-haikunator
