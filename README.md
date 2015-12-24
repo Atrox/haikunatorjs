@@ -81,3 +81,4 @@ Haikunator is also available in other languages. Check them out:
 - Go: https://github.com/Atrox/haikunatorgo
 - Dart: https://github.com/Atrox/haikunatordart
 - Ruby: https://github.com/usmanbashir/haikunator
+- Rust: https://github.com/nishanths/rust-haikunator
