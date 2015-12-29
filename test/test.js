@@ -1,6 +1,5 @@
-var assert = require("chai").assert,
-  haikunate = require("../src/haikunator");
-
+import haikunate from '../src/haikunator';
+import {assert} from 'chai'
 
 describe("testing haikunate", () => {
   it("should return 4 digits", () => {
@@ -44,8 +43,8 @@ describe("testing haikunate", () => {
   });
 
   it("returns the same name if seed is provided", () => {
-    let name1 = haikunate({seed: "foo"});
-    let name2 = haikunate({seed: "foo"});
-    assert.equal(name1, name2);
+    let haiku1 = haikunate({seed: "foo"});
+    let haiku2 = haikunate({seed: "foo"});
+    assert.equal(haiku1, haiku2);
   });
 });

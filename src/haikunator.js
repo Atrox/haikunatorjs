@@ -28,16 +28,18 @@ let nouns = [
   "penguin", "kiwi", "cake", "mouse", "rice", "coke", "hola", "salad", "hat"
 ];
 
-export default function haikunate({delimiter='-', tokenLength=4, tokenHex=false, tokenChars="0123456789", seed} = {}) {
+export default function haikunate({delimiter="-", tokenLength=4, tokenHex=false, tokenChars="0123456789", seed} = {}) {
   let adj, noun, i, sections, random, token = "";
 
-  if (tokenHex === true) tokenChars = "0123456789abcdef";
+  if (tokenHex) {
+    tokenChars = "0123456789abcdef";
+  }
 
   // determine the random function to use
   if (seed == null) {
     random = Math.random;
   } else {
-    let RandomGenerator = require('random-seed');
+    let RandomGenerator = require("random-seed");
     random = new RandomGenerator(seed).random;
   }
 
