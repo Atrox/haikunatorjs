@@ -82,3 +82,4 @@ Haikunator is also available in other languages. Check them out:
 - Perl: https://github.com/Atrox/haikunatorperl
 - Dart: https://github.com/Atrox/haikunatordart
 - Ruby: https://github.com/usmanbashir/haikunator
+- Rust: https://github.com/nishanths/rust-haikunator
