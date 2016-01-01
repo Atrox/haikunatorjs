@@ -54,7 +54,7 @@ export default function haikunate({delimiter="-", tokenLength=4, tokenHex=false,
 
   // create result and return
   sections = [adj, noun, token];
-  return sections.filter(function (e) {
+  return sections.filter((e) => {
     return e === 0 || e;
   }).join(delimiter);
 }
