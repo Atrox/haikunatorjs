@@ -2,6 +2,7 @@ language: node_js
 node_js:
   - "node"
   - "io.js"
+  - "6"
   - "5"
   - "4"
   - "0.12"
