@@ -1,10 +1,10 @@
 {
   "name": "haikunator",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Generate Heroku-like random names to use in your node applications.",
   "main": "lib/haikunator.js",
   "scripts": {
-    "compile": "babel -d lib/ src/",
+    "compile": "babel src -d lib",
     "prepublish": "npm run compile",
     "test": "./node_modules/.bin/babel-node ./node_modules/isparta/bin/isparta cover --include-all-sources ./node_modules/mocha/bin/_mocha",
     "coveralls": "cat ./coverage/lcov.info | coveralls"
