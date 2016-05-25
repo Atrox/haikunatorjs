@@ -1,50 +1,86 @@
-import haikunate from '../src/haikunator';
-import {assert} from 'chai'
+import test from "ava";
+import haikunate from "../src/haikunator";
 
-describe("testing haikunate", () => {
-  it("should return 4 digits", () => {
-    assert.match(haikunate(), /((?:[a-z][a-z]+))(-)((?:[a-z][a-z]+))(-)(\d{4})$/i);
-  });
+test('should return 4 digits', t => {
+  t.regex(haikunate(), /((?:[a-z][a-z]+))(-)((?:[a-z][a-z]+))(-)(\d{4})$/i);
+});
 
-  it("should return 4 digits as hex", () => {
-    assert.match(haikunate({tokenHex: true}), /((?:[a-z][a-z]+))(-)((?:[a-z][a-z]+))(-)(.{4})$/i);
-  });
+test('should return 4 digits as hex', t => {
+  const opts = {
+    tokenHex: true
+  };
 
-  it("should return 9 digits", () => {
-    assert.match(haikunate({tokenLength: 9}), /((?:[a-z][a-z]+))(-)((?:[a-z][a-z]+))(-)(\d{9})$/i);
-  });
+  t.regex(haikunate(opts), /((?:[a-z][a-z]+))(-)((?:[a-z][a-z]+))(-)(.{4})$/i);
+});
 
-  it("should return 9 digits as hex", () => {
-    assert.match(haikunate({tokenLength: 9, tokenHex: true}), /((?:[a-z][a-z]+))(-)((?:[a-z][a-z]+))(-)(.{9})$/i);
-  });
+test('should return 9 digits', t => {
+  const opts = {
+    tokenLength: 9
+  };
 
-  it("wont return the same name for subsequent calls", () => {
-    assert.notStrictEqual(haikunate(), haikunate());
-  });
+  t.regex(haikunate(opts), /((?:[a-z][a-z]+))(-)((?:[a-z][a-z]+))(-)(\d{9})$/i);
+});
 
-  it("drops the token if token range is 0", () => {
-    assert.match(haikunate({tokenLength: 0}), /((?:[a-z][a-z]+))(-)((?:[a-z][a-z]+))$/i);
-  });
+test('should return 9 digits as hex', t => {
+  const opts = {
+    tokenLength: 9,
+    tokenHex: true
+  };
 
-  it("permits optional configuration of the delimiter", () => {
-    assert.match(haikunate({delimiter: "."}), /((?:[a-z][a-z]+))(\.)((?:[a-z][a-z]+))(\.)(\d+)$/i);
-  });
+  t.regex(haikunate(opts), /((?:[a-z][a-z]+))(-)((?:[a-z][a-z]+))(-)(.{9})$/i);
+});
 
-  it("drops the token if token range is 0 and delimiter is an empty space", () => {
-    assert.match(haikunate({tokenLength: 0, delimiter: " "}), /((?:[a-z][a-z]+))( )((?:[a-z][a-z]+))$/i);
-  });
+test('drops token if token range is 0', t => {
+  const opts = {
+    tokenLength: 0
+  };
 
-  it("returns one single word if token and delimiter are dropped", () => {
-    assert.match(haikunate({tokenLength: 0, delimiter: ""}), /((?:[a-z][a-z]+))$/i);
-  });
+  t.regex(haikunate(opts), /((?:[a-z][a-z]+))(-)((?:[a-z][a-z]+))$/i);
+});
 
-  it("permits custom token chars", () => {
-    assert.match(haikunate({tokenChars: "A"}), /((?:[a-z][a-z]+))(-)((?:[a-z][a-z]+))(-)(AAAA)$/i);
-  });
+test('permits optional configuration of the delimiter', t => {
+  const opts = {
+    delimiter: '.'
+  };
 
-  it("returns the same name if seed is provided", () => {
-    let haiku1 = haikunate({seed: "foo"});
-    let haiku2 = haikunate({seed: "foo"});
-    assert.equal(haiku1, haiku2);
-  });
+  t.regex(haikunate(opts), /((?:[a-z][a-z]+))(\.)((?:[a-z][a-z]+))(\.)(\d+)$/i);
+});
+
+test('drops the token if token range is 0 and delimiter is an empty space', t => {
+  const opts = {
+    tokenLength: 0,
+    delimiter: ' '
+  };
+
+  t.regex(haikunate(opts), /((?:[a-z][a-z]+))( )((?:[a-z][a-z]+))$/i);
+});
+
+test('returns one single word if token and delimiter are dropped', t => {
+  const opts = {
+    tokenLength: 0,
+    delimiter: ''
+  };
+
+  t.regex(haikunate(opts), /((?:[a-z][a-z]+))$/i);
+});
+
+test('permits custom token chars', t => {
+  const opts = {
+    tokenChars: 'A'
+  };
+
+  t.regex(haikunate(opts), /((?:[a-z][a-z]+))(-)((?:[a-z][a-z]+))(-)(AAAA)$/i);
+});
+
+test('wont return the same name for subsequent calls', t => {
+  t.not(haikunate(), haikunate());
+});
+
+test('returns the same name if seed is provided', t => {
+  const opts = {
+    seed: 'foo'
+  };
+
+  const [haiku1, haiku2] = [haikunate(opts), haikunate(opts)];
+  t.is(haiku1, haiku2);
 });
