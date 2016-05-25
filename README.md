@@ -11,7 +11,7 @@ Generate Heroku-like random names to use in your node applications.
 ## Installation
 
 ```
-npm install haikunator
+npm install --save haikunator
 ```
 
 ## Usage
@@ -19,31 +19,45 @@ npm install haikunator
 Haikunator is pretty simple.
 
 ```javascript
-var haikunate = require("haikunator");
+var Haikunator = require('haikunator')
+import Haikunator from 'haikunator' // ES2015
+
+// Instantiate Haikunator without options
+var haikunator = new Haikunator();
+
+// Instantiate Haikunator with default options
+var haikunator = new Haikunator({
+    seed: 'custom-seed',
+    defaults: { // class defaults
+        tokenLength: 8,
+        tokenChars: 'HAIKUNATOR',
+        // ...
+    }
+});
 
 // default usage
-haikunate() // => "wispy-dust-1337"
+haikunator.haikunate() // => "wispy-dust-1337"
 
 // custom length (default=4)
-haikunate({tokenLength: 6}) // => "patient-king-887265"
+haikunator.haikunate({tokenLength: 6}) // => "patient-king-887265"
 
 // use hex instead of numbers
-haikunate({tokenHex: true}) // => "purple-breeze-98e1"
+haikunator.haikunate({tokenHex: true}) // => "purple-breeze-98e1"
 
 // use custom chars instead of numbers/hex
-haikunate({tokenChars: "HAIKUNATE"}) // => "summer-atom-IHEA"
+haikunator.haikunate({tokenChars: "HAIKUNATE"}) // => "summer-atom-IHEA"
 
 // don't include a token
-haikunate({tokenLength: 0}) // => "cold-wildflower"
+haikunator.haikunate({tokenLength: 0}) // => "cold-wildflower"
 
 // use a different delimiter
-haikunate({delimiter: "."}) // => "restless.sea.7976"
+haikunator.haikunate({delimiter: "."}) // => "restless.sea.7976"
 
 // no token, space delimiter
-haikunate({tokenLength: 0, delimiter: " "}) // => "delicate haze"
+haikunator.haikunate({tokenLength: 0, delimiter: " "}) // => "delicate haze"
 
 // no token, empty delimiter
-haikunate({tokenLength: 0, delimiter: ""}) // => "billowingleaf"
+haikunator.haikunate({tokenLength: 0, delimiter: ""}) // => "billowingleaf"
 ```
 
 ## Options
@@ -51,13 +65,25 @@ haikunate({tokenLength: 0, delimiter: ""}) // => "billowingleaf"
 The following options are available:
 
 ```javascript
-haikunate({
-  delimiter: "-",
-  tokenLength: 4,
-  tokenHex: false,
-  tokenChars: "0123456789",
-  seed: null
+var Haikunator = require("haikunator");
+
+var haikunator = new Haikunator({
+    seed: 'custom-seed' // Custom seed
+    defaults: { // Class wide defaults, get overriden by haikunate(options)
+        delimiter: "-",
+        tokenLength: 4,
+        tokenHex: false,
+        tokenChars: "0123456789",
+    }
 });
+
+// Same options (except seed) are also available on the haikunate method
+haikunator.haikunate({
+    delimiter: "-",
+    tokenLength: 4,
+    tokenHex: false,
+    tokenChars: "0123456789"
+})
 ```
 *If ```tokenHex``` is true, it overrides any tokens specified in ```tokenChars```*
 
