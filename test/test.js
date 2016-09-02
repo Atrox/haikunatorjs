@@ -5,105 +5,42 @@ import Haikunator from '../src/haikunator'
 
 const haikunator = new Haikunator()
 
-test('should return 4 digits', t => {
-  t.regex(haikunator.haikunate(), /((?:[a-z][a-z]+))(-)((?:[a-z][a-z]+))(-)(\d{4})$/i)
-})
+test('general functionality', t => {
+  const tests = [
+    [ {}, /[a-z]+-[a-z]+-[0-9]{4}$/ ],
+    [ { tokenHex: true }, /[a-z]+-[a-z]+-[0-f]{4}$/ ],
+    [ { tokenLength: 9 }, /[a-z]+-[a-z]+-[0-9]{9}$/ ],
+    [ { tokenLength: 9, tokenHex: true }, /[a-z]+-[a-z]+-[0-f]{9}$/ ],
+    [ { tokenLength: 0 }, /[a-z]+-[a-z]+$/ ],
+    [ { delimiter: '.' }, /[a-z]+.[a-z]+.[0-9]{4}$/ ],
+    [ { tokenLength: 0, delimiter: ' ' }, /[a-z]+ [a-z]+/ ],
+    [ { tokenLength: 0, delimiter: '' }, /[a-z]+$/ ],
+    [ { tokenChars: 'xyz' }, /[a-z]+-[a-z]+-[x-z]{4}$/ ]
+  ]
 
-test('should return 4 digits as hex', t => {
-  const opts = {
-    tokenHex: true
-  }
-
-  t.regex(haikunator.haikunate(opts), /((?:[a-z][a-z]+))(-)((?:[a-z][a-z]+))(-)(.{4})$/i)
-})
-
-test('should return 9 digits', t => {
-  const opts = {
-    tokenLength: 9
-  }
-
-  t.regex(haikunator.haikunate(opts), /((?:[a-z][a-z]+))(-)((?:[a-z][a-z]+))(-)(\d{9})$/i)
-})
-
-test('should return 9 digits as hex', t => {
-  const opts = {
-    tokenLength: 9,
-    tokenHex: true
-  }
-
-  t.regex(haikunator.haikunate(opts), /((?:[a-z][a-z]+))(-)((?:[a-z][a-z]+))(-)(.{9})$/i)
-})
-
-test('drops token if token range is 0', t => {
-  const opts = {
-    tokenLength: 0
-  }
-
-  t.regex(haikunator.haikunate(opts), /((?:[a-z][a-z]+))(-)((?:[a-z][a-z]+))$/i)
-})
-
-test('permits optional configuration of the delimiter', t => {
-  const opts = {
-    delimiter: '.'
-  }
-
-  t.regex(haikunator.haikunate(opts), /((?:[a-z][a-z]+))(\.)((?:[a-z][a-z]+))(\.)(\d+)$/i)
-})
-
-test('drops the token if token range is 0 and delimiter is an empty space', t => {
-  const opts = {
-    tokenLength: 0,
-    delimiter: ' '
-  }
-
-  t.regex(haikunator.haikunate(opts), /((?:[a-z][a-z]+))( )((?:[a-z][a-z]+))$/i)
-})
-
-test('returns one single word if token and delimiter are dropped', t => {
-  const opts = {
-    tokenLength: 0,
-    delimiter: ''
-  }
-
-  t.regex(haikunator.haikunate(opts), /((?:[a-z][a-z]+))$/i)
-})
-
-test('permits custom token chars', t => {
-  const opts = {
-    tokenChars: 'A'
-  }
-
-  t.regex(haikunator.haikunate(opts), /((?:[a-z][a-z]+))(-)((?:[a-z][a-z]+))(-)(AAAA)$/i)
+  tests.forEach(test => {
+    t.regex(haikunator.haikunate(test[ 0 ]), test[ 1 ])
+  })
 })
 
 test('wont return the same name for subsequent calls', t => {
-  const cHaikunator = new Haikunator()
+  const tests = [ new Haikunator(), new Haikunator() ]
 
-  const [haiku1, haiku2] = [ haikunator.haikunate(), haikunator.haikunate() ]
-  const [haiku3, haiku4] = [ cHaikunator.haikunate(), cHaikunator.haikunate() ]
-
-  t.not(haiku1, haiku2)
-  t.not(haiku3, haiku4)
-  t.not(haiku1, haiku3)
-  t.not(haiku2, haiku4)
+  tests.forEach(h1 => {
+    tests.forEach(h2 => {
+      t.not(h1.haikunate(), h2.haikunate())
+    })
+  })
 })
 
 test('returns the same name if seed is provided', t => {
-  // New Haikunator 1
-  const cHaikunator1 = new Haikunator({
-    seed: 'foo'
-  })
+  const seed = 'definitively random seed'
 
-  // New Haikunator 2
-  const cHaikunator2 = new Haikunator({
-    seed: 'foo'
-  })
+  const h1 = new Haikunator({ seed: seed })
+  const h2 = new Haikunator({ seed: seed })
 
-  const [haiku1, haiku12] = [ cHaikunator1.haikunate(), cHaikunator1.haikunate() ]
-  const [haiku2, haiku22] = [ cHaikunator2.haikunate(), cHaikunator2.haikunate() ]
-
-  t.is(haiku1, haiku2)
-  t.is(haiku12, haiku22)
+  t.is(h1.haikunate(), h2.haikunate())
+  t.is(h1.haikunate(), h2.haikunate())
 })
 
 test('class wide defaults', t => {
@@ -114,26 +51,30 @@ test('class wide defaults', t => {
     }
   })
 
-  const [haiku1, haiku2] = [ wordHaikunator.haikunate(), wordHaikunator.haikunate() ]
-
-  t.regex(haiku1, /((?:[a-z][a-z]+))$/i)
-  t.regex(haiku2, /((?:[a-z][a-z]+))$/i)
+  t.regex(wordHaikunator.haikunate(), /((?:[a-z][a-z]+))$/i)
 })
 
-test('class wide defaults can get overriden by function parameters', t => {
+test('class wide defaults can get overridden by function parameters', t => {
   const wordHaikunator = new Haikunator({
     defaults: {
-      tokenLength: '0',
+      tokenLength: 0,
       delimiter: ''
     }
   })
 
   const opts = {
-    delimiter: '+'
+    delimiter: '.'
   }
 
-  const [haiku1, haiku2] = [ wordHaikunator.haikunate(), wordHaikunator.haikunate(opts) ]
+  t.regex(wordHaikunator.haikunate(), /[a-z]+$/)
+  t.regex(wordHaikunator.haikunate(opts), /[a-z]+.[a-z]+$/)
+})
 
-  t.regex(haiku1, /((?:[a-z][a-z]+))$/i)
-  t.regex(haiku2, /((?:[a-z][a-z]+))(\+)((?:[a-z][a-z]+))$/i)
+test('custom adjectives & nouns', t => {
+  const customHaikunator = new Haikunator({
+    adjectives: [ 'adjective' ],
+    nouns: [ 'noun' ]
+  })
+
+  t.regex(customHaikunator.haikunate(), /adjective-noun-\d{4}$/)
 })

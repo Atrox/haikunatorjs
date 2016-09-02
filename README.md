@@ -11,7 +11,7 @@ Generate Heroku-like random names to use in your node applications.
 ## Installation
 
 ```
-npm install --save haikunator
+npm install --save haikunator@beta
 ```
 
 ## Usage
@@ -20,20 +20,22 @@ Haikunator is pretty simple.
 
 ```javascript
 var Haikunator = require('haikunator')
-import Haikunator from 'haikunator' // ES2015
+// ES6: import Haikunator from 'haikunator'
 
 // Instantiate Haikunator without options
-var haikunator = new Haikunator();
+// var haikunator = new Haikunator()
 
 // Instantiate Haikunator with default options
 var haikunator = new Haikunator({
+    adjectives: ['custom', 'adjectives'],
+    nouns: ['custom', 'nouns'],
     seed: 'custom-seed',
     defaults: { // class defaults
         tokenLength: 8,
         tokenChars: 'HAIKUNATOR',
         // ...
     }
-});
+})
 
 // default usage
 haikunator.haikunate() // => "wispy-dust-1337"
@@ -65,19 +67,21 @@ haikunator.haikunate({tokenLength: 0, delimiter: ""}) // => "billowingleaf"
 The following options are available:
 
 ```javascript
-var Haikunator = require("haikunator");
+var Haikunator = require("haikunator")
 
 var haikunator = new Haikunator({
-    seed: 'custom-seed' // Custom seed
-    defaults: { // Class wide defaults, get overriden by haikunate(options)
+    adjectives: ['custom', 'adjectives'],
+    nouns: ['custom', 'nouns'],
+    seed: 'custom-seed', // Custom seed
+    defaults: { // Class wide defaults, can get overridden by haikunate(options)
         delimiter: "-",
         tokenLength: 4,
         tokenHex: false,
         tokenChars: "0123456789",
     }
-});
+})
 
-// Same options (except seed) are also available on the haikunate method
+// Same options are also available on the haikunate method
 haikunator.haikunate({
     delimiter: "-",
     tokenLength: 4,
@@ -85,7 +89,7 @@ haikunator.haikunate({
     tokenChars: "0123456789"
 })
 ```
-*If ```tokenHex``` is true, it overrides any tokens specified in ```tokenChars```*
+*If ```tokenHex``` is true, any tokens specified in ```tokenChars``` are ignored*
 
 ## Contributing
 

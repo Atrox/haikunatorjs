@@ -1,50 +1,50 @@
 {
   "name": "haikunator",
-  "version": "1.2.3",
   "description": "Generate Heroku-like random names to use in your node applications.",
-  "main": "lib/haikunator.js",
-  "scripts": {
-    "compile": "babel src -d lib",
-    "prepublish": "npm run compile",
-    "test": "standard && nyc ava",
-    "coverage": "nyc report --reporter=text-lcov | coveralls"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Atrox/haikunatorjs"
-  },
-  "keywords": [
-    "haikunator",
-    "heroku",
-    "random",
-    "names",
-    "heroku-like",
-    "generator",
-    "haikunate"
-  ],
+  "version": "2.0.0-beta.1",
   "author": "Atrox <mail@atrox.me>",
-  "license": "BSD-3-Clause",
-  "bugs": {
-    "url": "https://github.com/Atrox/haikunatorjs/issues"
-  },
-  "homepage": "https://github.com/Atrox/haikunatorjs",
-  "devDependencies": {
-    "ava": "^0.15.0",
-    "babel-cli": "^6.9.0",
-    "babel-plugin-add-module-exports": "^0.2.1",
-    "babel-preset-es2015": "^6.9.0",
-    "babel-register": "^6.9.0",
-    "coveralls": "^2.11.9",
-    "nyc": "^6.4.4",
-    "standard": "^7.1.0"
-  },
-  "dependencies": {
-    "lodash.defaults": "^4.0.1",
-    "random-seed": "^0.3.0"
-  },
   "ava": {
     "require": [
       "babel-register"
     ]
+  },
+  "bugs": {
+    "url": "https://github.com/Atrox/haikunatorjs/issues"
+  },
+  "dependencies": {
+    "lodash.defaults": "^4.2.0",
+    "random-seed": "^0.3.0"
+  },
+  "devDependencies": {
+    "ava": "^0.16.0",
+    "babel-cli": "^6.14.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-register": "^6.14.0",
+    "coveralls": "^2.11.12",
+    "nyc": "^8.1.0",
+    "standard": "^8.0.0"
+  },
+  "homepage": "https://github.com/Atrox/haikunatorjs",
+  "keywords": [
+    "generator",
+    "haikunate",
+    "haikunator",
+    "heroku",
+    "heroku-like",
+    "names",
+    "random"
+  ],
+  "license": "BSD-3-Clause",
+  "main": "lib/haikunator.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Atrox/haikunatorjs"
+  },
+  "scripts": {
+    "compile": "babel src -d lib",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "prepublish": "npm run compile",
+    "test": "standard && nyc ava"
   }
 }

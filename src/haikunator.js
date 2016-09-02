@@ -7,7 +7,7 @@ import setDefaults from 'lodash.defaults'
  * Adjectives used by haikunator
  * @type {string[]}
  */
-const adjectives = [
+const defaultAdjectives = [
   'aged', 'ancient', 'autumn', 'billowing', 'bitter', 'black', 'blue', 'bold',
   'broad', 'broken', 'calm', 'cold', 'cool', 'crimson', 'curly', 'damp',
   'dark', 'dawn', 'delicate', 'divine', 'dry', 'empty', 'falling', 'fancy',
@@ -26,7 +26,7 @@ const adjectives = [
  * Nouns used by haikunator
  * @type {string[]}
  */
-const nouns = [
+const defaultNouns = [
   'art', 'band', 'bar', 'base', 'bird', 'block', 'boat', 'bonus',
   'bread', 'breeze', 'brook', 'bush', 'butterfly', 'cake', 'cell', 'cherry',
   'cloud', 'credit', 'darkness', 'dawn', 'dew', 'disk', 'dream', 'dust',
@@ -53,22 +53,24 @@ const defaultOptions = {
   tokenChars: '0123456789'
 }
 
-/**
- *
- */
 export default class Haikunator {
   /**
    * Initialize new haikunator
    * @param {object} defaults
+   * @param {string[]} adjectives
+   * @param {string[]} nouns
    * @param {string} seed
    */
-  constructor ({ defaults = {}, seed } = {}) {
+  constructor ({ defaults = {}, adjectives = defaultAdjectives, nouns = defaultNouns, seed } = {}) {
+    this.adjectives = adjectives
+    this.nouns = nouns
+
     this.random = new RandomGenerator(seed)
     this.config = setDefaults(defaults, defaultOptions)
   }
 
   /**
-   *
+   * Generate heroku-like random names
    * @param {object} options
    * @returns {string}
    */
@@ -82,13 +84,13 @@ export default class Haikunator {
     }
 
     // pick adjective and noun
-    const adjective = adjectives[ this.random(adjectives.length) ]
-    const noun = nouns[ this.random(nouns.length) ]
+    const adjective = this._randomElement(this.adjectives)
+    const noun = this._randomElement(this.nouns)
 
-    // create hex token
+    // create random token
     let token = ''
     for (let i = 0; i < config.tokenLength; i++) {
-      token += config.tokenChars.charAt(this.random(config.tokenChars.length))
+      token += this._randomElement(config.tokenChars)
     }
 
     // create result and return
@@ -96,5 +98,15 @@ export default class Haikunator {
     return sections.filter(e => {
       return e === 0 || e
     }).join(config.delimiter)
+  }
+
+  /**
+   * Get a random element from an array/string
+   * @param {(string|Array)} array
+   * @returns {*}
+   * @private
+   */
+  _randomElement (array) {
+    return array[ this.random(array.length) ]
   }
 }
