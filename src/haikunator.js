@@ -2,7 +2,7 @@
  * Adjectives used by haikunator
  * @type {string[]}
  */
-const adjectives = [
+const adjectivesList = [
   'aged', 'ancient', 'autumn', 'billowing', 'bitter', 'black', 'blue', 'bold',
   'broad', 'broken', 'calm', 'cold', 'cool', 'crimson', 'curly', 'damp',
   'dark', 'dawn', 'delicate', 'divine', 'dry', 'empty', 'falling', 'fancy',
@@ -21,7 +21,7 @@ const adjectives = [
  * Nouns used by haikunator
  * @type {string[]}
  */
-const nouns = [
+const nounsList = [
   'art', 'band', 'bar', 'base', 'bird', 'block', 'boat', 'bonus',
   'bread', 'breeze', 'brook', 'bush', 'butterfly', 'cake', 'cell', 'cherry',
   'cloud', 'credit', 'darkness', 'dawn', 'dew', 'disk', 'dream', 'dust',
@@ -47,7 +47,17 @@ const nouns = [
  * @param {string} [seed]
  * @returns {string}
  */
-export default function haikunate({delimiter = '-', tokenLength = 4, tokenHex = false, tokenChars = '0123456789', seed} = {}) {
+export default function haikunate(
+  {
+    delimiter = '-', 
+    tokenLength = 4, 
+    tokenHex = false, 
+    tokenChars = '0123456789', 
+    seed, 
+    adjectives = adjectivesList,
+    nouns = nounsList
+  } = {}) {
+    
   if (tokenHex) {
     tokenChars = '0123456789abcdef';
   }
