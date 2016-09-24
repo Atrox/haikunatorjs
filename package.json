@@ -1,7 +1,7 @@
 {
   "name": "haikunator",
   "description": "Generate Heroku-like random names to use in your node applications.",
-  "version": "2.0.0-beta.1",
+  "version": "2.0.0",
   "author": "Atrox <mail@atrox.me>",
   "ava": {
     "require": [
@@ -21,9 +21,9 @@
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-preset-es2015": "^6.14.0",
     "babel-register": "^6.14.0",
-    "coveralls": "^2.11.12",
-    "nyc": "^8.1.0",
-    "standard": "^8.0.0"
+    "coveralls": "^2.11.14",
+    "nyc": "^8.3.0",
+    "standard": "^8.1.0"
   },
   "homepage": "https://github.com/Atrox/haikunatorjs",
   "keywords": [

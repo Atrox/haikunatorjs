@@ -38,8 +38,7 @@ const defaultNouns = [
   'river', 'salad', 'scene', 'sea', 'shadow', 'shape', 'silence', 'sky',
   'smoke', 'snow', 'snowflake', 'sound', 'star', 'sun', 'sun', 'sunset',
   'surf', 'term', 'thunder', 'tooth', 'tree', 'truth', 'union', 'unit',
-  'violet', 'voice', 'water', 'water', 'waterfall', 'wave', 'wildflower', 'wind',
-  'wood'
+  'violet', 'voice', 'water', 'waterfall', 'wave', 'wildflower', 'wind', 'wood'
 ]
 
 /**
