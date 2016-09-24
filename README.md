@@ -11,7 +11,7 @@ Generate Heroku-like random names to use in your node applications.
 ## Installation
 
 ```
-npm install --save haikunator@beta
+npm install --save haikunator
 ```
 
 ## Usage
