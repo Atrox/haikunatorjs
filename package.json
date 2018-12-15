@@ -16,7 +16,7 @@
     "random-seed": "^0.3.0"
   },
   "devDependencies": {
-    "ava": "^0.25.0",
+    "ava": "^1.0.1",
     "babel-cli": "^6.14.0",
     "babel-plugin-add-module-exports": "^1.0.0",
     "babel-preset-es2015": "^6.14.0",
