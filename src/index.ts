@@ -1,11 +1,8 @@
-'use strict'
-
-import RandomGenerator from 'random-seed'
+import RandomGenerator, { RandomSeed } from 'random-seed'
 import setDefaults from 'lodash.defaults'
 
 /**
  * Adjectives used by haikunator
- * @type {string[]}
  */
 const defaultAdjectives = [
   'aged', 'ancient', 'autumn', 'billowing', 'bitter', 'black', 'blue', 'bold',
@@ -24,7 +21,6 @@ const defaultAdjectives = [
 
 /**
  * Nouns used by haikunator
- * @type {string[]}
  */
 const defaultNouns = [
   'art', 'band', 'bar', 'base', 'bird', 'block', 'boat', 'bonus',
@@ -41,11 +37,24 @@ const defaultNouns = [
   'violet', 'voice', 'water', 'waterfall', 'wave', 'wildflower', 'wind', 'wood'
 ]
 
+export type Options = {
+  defaults?: Config
+  adjectives?: string[]
+  nouns?: string[]
+  seed?: string
+}
+
+export type Config = {
+  delimiter?: string
+  tokenLength?: number
+  tokenHex?: boolean
+  tokenChars?: string
+}
+
 /**
  * Default options used by haikunate method
- * @type {{delimiter: string, tokenLength: number, tokenHex: boolean, tokenChars: string}}
  */
-const defaultOptions = {
+const defaultOptions: Config = {
   delimiter: '-',
   tokenLength: 4,
   tokenHex: false,
@@ -53,27 +62,27 @@ const defaultOptions = {
 }
 
 export default class Haikunator {
+  adjectives: string[]
+  nouns: string[]
+
+  random: RandomSeed
+  config: Config
+
   /**
    * Initialize new haikunator
-   * @param {object} defaults
-   * @param {string[]} adjectives
-   * @param {string[]} nouns
-   * @param {string} seed
    */
-  constructor ({ defaults = {}, adjectives = defaultAdjectives, nouns = defaultNouns, seed } = {}) {
-    this.adjectives = adjectives
-    this.nouns = nouns
+  constructor(options: Options = {}) {
+    this.adjectives = options.adjectives || defaultAdjectives
+    this.nouns = options.nouns || defaultNouns
 
-    this.random = new RandomGenerator(seed)
-    this.config = setDefaults(defaults, defaultOptions)
+    this.random = RandomGenerator.create(options.seed)
+    this.config = setDefaults(options.defaults, defaultOptions)
   }
 
   /**
    * Generate heroku-like random names
-   * @param {object} options
-   * @returns {string}
    */
-  haikunate (options = {}) {
+  haikunate(options?: Config): string {
     // set specified options
     const config = setDefaults(options, this.config)
 
@@ -87,15 +96,17 @@ export default class Haikunator {
     const noun = this._randomElement(this.nouns)
 
     // create random token
+    if (!config.tokenLength) config.tokenLength = 0
+
     let token = ''
     for (let i = 0; i < config.tokenLength; i++) {
       token += this._randomElement(config.tokenChars)
     }
 
     // create result and return
-    const sections = [ adjective, noun, token ]
+    const sections = [adjective, noun, token]
     return sections.filter(e => {
-      return e === 0 || e
+      return !!e
     }).join(config.delimiter)
   }
 
@@ -105,7 +116,8 @@ export default class Haikunator {
    * @returns {*}
    * @private
    */
-  _randomElement (array) {
-    return array[ this.random(array.length) ]
+  _randomElement(array: (string | Array<any> | undefined)): (string | undefined) {
+    if (!array) return undefined
+    return array[this.random(array.length)]
   }
 }

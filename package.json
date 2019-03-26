@@ -1,30 +1,8 @@
 {
   "name": "haikunator",
   "description": "Generate Heroku-like random names to use in your node applications.",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "author": "Atrox <mail@atrox.me>",
-  "ava": {
-    "require": [
-      "babel-register"
-    ]
-  },
-  "bugs": {
-    "url": "https://github.com/Atrox/haikunatorjs/issues"
-  },
-  "dependencies": {
-    "lodash.defaults": "^4.2.0",
-    "random-seed": "^0.3.0"
-  },
-  "devDependencies": {
-    "ava": "^0.25.0",
-    "babel-cli": "^6.14.0",
-    "babel-plugin-add-module-exports": "^1.0.0",
-    "babel-preset-es2015": "^6.14.0",
-    "babel-register": "^6.14.0",
-    "coveralls": "^3.0.0",
-    "nyc": "^13.2.0",
-    "standard": "^12.0.1"
-  },
   "homepage": "https://github.com/Atrox/haikunatorjs",
   "keywords": [
     "generator",
@@ -36,15 +14,52 @@
     "random"
   ],
   "license": "BSD-3-Clause",
-  "main": "lib/haikunator.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/Atrox/haikunatorjs"
   },
+  "bugs": {
+    "url": "https://github.com/Atrox/haikunatorjs/issues"
+  },
   "scripts": {
-    "compile": "babel src -d lib",
-    "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "prepublish": "npm run compile",
-    "test": "standard && nyc ava"
+    "build": "pack build",
+    "test": "jest",
+    "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls"
+  },
+  "dependencies": {
+    "lodash.defaults": "^4.2.0",
+    "random-seed": "^0.3.0"
+  },
+  "devDependencies": {
+    "@pika/pack": "^0.3.4",
+    "@pika/plugin-build-node": "^0.3.13",
+    "@pika/plugin-build-web": "^0.3.13",
+    "@pika/plugin-bundle-web": "^0.3.14",
+    "@pika/plugin-ts-standard-pkg": "^0.3.14",
+    "@types/jest": "^24.0.11",
+    "@types/lodash.defaults": "^4.2.5",
+    "@types/random-seed": "^0.3.3",
+    "coveralls": "^3.0.3",
+    "jest": "^24.5.0",
+    "standard": "^12.0.1",
+    "ts-jest": "^24.0.0",
+    "tslint": "^5.13.1",
+    "typescript": "^3.3.3333"
+  },
+  "@pika/pack": {
+    "pipeline": [
+      [
+        "@pika/plugin-ts-standard-pkg"
+      ],
+      [
+        "@pika/plugin-build-node"
+      ],
+      [
+        "@pika/plugin-build-web"
+      ],
+      [
+        "@pika/plugin-bundle-web"
+      ]
+    ]
   }
 }

@@ -1,6 +1,4 @@
-node_modules
-.idea/
+node_modules/
 coverage/
+pkg/
 *.log
-lib/
-.nyc_output/
