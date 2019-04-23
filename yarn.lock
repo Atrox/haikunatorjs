@@ -855,9 +855,9 @@
     rollup-plugin-babel "^4.3.0"
 
 "@pika/plugin-bundle-web@^0.3.14":
-  version "0.3.14"
-  resolved "https://registry.yarnpkg.com/@pika/plugin-bundle-web/-/plugin-bundle-web-0.3.14.tgz#2e5870e7dbfe851c68d094e1374ca19fc758374f"
-  integrity sha512-BStltZ6Qy9s4n3qAy60Wb4/EQTV4LOJwWb74czc5c8sggOvX3WH/NI01xblCAPFT2g4G7nER5FCHAa6N058L8A==
+  version "0.3.15"
+  resolved "https://registry.yarnpkg.com/@pika/plugin-bundle-web/-/plugin-bundle-web-0.3.15.tgz#f278b4b013b06c88c51f25d4e48022224f13f503"
+  integrity sha512-rFn0369NYUKbmuZ+ON3ywft78E4MkOHmkES2c9SYwDndCjtVoXnjT8mbTr9clNLMvYbRozeEj8pszeeuHotj0w==
   dependencies:
     "@pika/types" "^0.3.5"
     rollup "^1.1.0"
