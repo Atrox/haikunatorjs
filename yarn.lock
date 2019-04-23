@@ -788,7 +788,7 @@
   resolved "https://registry.yarnpkg.com/@pika/babel-plugin-esm-import-rewrite/-/babel-plugin-esm-import-rewrite-0.3.14.tgz#61c902058e6896f63345aeb36d06c6c98f7c72f2"
   integrity sha512-eetgWXH6Vec5ArWgLf0wziArZdJvpj4yGq+DyxCatCPEimtdyVPnLGadN3ChqBRHW42yLzq7z4yXOBgI62hSUQ==
 
-"@pika/pack@^0.3.4":
+"@pika/pack@^0.3.4", "@pika/pack@^0.3.6":
   version "0.3.7"
   resolved "https://registry.yarnpkg.com/@pika/pack/-/pack-0.3.7.tgz#fa093b4b075947c8c1d1a72e659522e70966c68e"
   integrity sha512-YoY5eRji4ABupF0SNyeRPFaCZ1VPYTI7ytorgSnphstqup9krBFe41EtEVHXD7VQkINlXKXgJUfTS41spaL2vA==
@@ -838,10 +838,11 @@
     rollup-plugin-babel "^4.3.0"
 
 "@pika/plugin-build-types@^0.3.14":
-  version "0.3.14"
-  resolved "https://registry.yarnpkg.com/@pika/plugin-build-types/-/plugin-build-types-0.3.14.tgz#1bf1f3e0ee8d824d7bd01c20faf7c2145e9f3841"
-  integrity sha512-rZheAQ5CB55SBSd+Bub06JLCelNoi9mV8P93Q1qFBVtJrQHpVjsG6fI2c2fgMUmlO/n1QI2E9Sk1WqNWIGrAMQ==
+  version "0.3.16"
+  resolved "https://registry.yarnpkg.com/@pika/plugin-build-types/-/plugin-build-types-0.3.16.tgz#5682a31e78314d8899eec4cded9f8d7b55f0b126"
+  integrity sha512-yv3gu5tZLeT/8n7HKVgxdsNS81vHpb3RCmeMUdj6TOPvTqz7x92r/kZ7dNAfhO7Coo+i+Sp3Tx53XujkPrWNzQ==
   dependencies:
+    "@pika/pack" "^0.3.6"
     "@pika/types" "^0.3.5"
     execa "^1.0.0"
     mkdirp "^0.5.1"
