@@ -864,12 +864,12 @@
     rollup "^1.1.0"
     rollup-plugin-babel "^4.3.0"
 
-"@pika/plugin-bundle-web@^0.3.14":
-  version "0.3.16"
-  resolved "https://registry.yarnpkg.com/@pika/plugin-bundle-web/-/plugin-bundle-web-0.3.16.tgz#16b9e9d0151679e76002a5f962b233fa8c3ee29b"
-  integrity sha512-8pIUXbA940cqPQis9Ux870YVCbA52+CdW5/WUQEuFpDid5iqqZ9FDVoOQGbuw0kjY1eR/tqggsD0CNFbLpjQpw==
+"@pika/plugin-bundle-web@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@pika/plugin-bundle-web/-/plugin-bundle-web-0.4.0.tgz#fbd26f077012391cd07eee297ba6e9627a9dda2e"
+  integrity sha512-Qa5QMAr6PKIwx/XrMuOiRpC73tLjlJ+du0ZU+/DDZG86TPtMiDIlgRQf8cP6u0WHF5nblusq484oRkjcbuVApg==
   dependencies:
-    "@pika/types" "^0.3.5"
+    "@pika/types" "^0.4.0"
     rollup "^1.1.0"
     rollup-plugin-commonjs "^9.2.0"
     rollup-plugin-json "^3.1.0"
