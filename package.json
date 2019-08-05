@@ -22,7 +22,7 @@
     "url": "https://github.com/Atrox/haikunatorjs/issues"
   },
   "scripts": {
-    "build": "pika-pack build",
+    "build": "pika build",
     "test": "jest",
     "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls"
   },
