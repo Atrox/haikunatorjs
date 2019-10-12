@@ -927,9 +927,9 @@
     rollup "^1.1.0"
 
 "@pika/plugin-bundle-web@^0.6.0":
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/@pika/plugin-bundle-web/-/plugin-bundle-web-0.6.0.tgz#a9c2e2d4145f022636897c3eeb2d4c50caf9bfa3"
-  integrity sha512-VVnWkIn5zbLmN6Vu35N0B+GzayWI6rWwhgYQ94uU0hAFcRjXLy8kTP3cPYwBvWCV/JtizqCeKy5OW3yH6zloTA==
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/@pika/plugin-bundle-web/-/plugin-bundle-web-0.6.1.tgz#e393a13126aa07bf5eaf74633aa0ef7fc55fbcd8"
+  integrity sha512-KnpYa/Crej//v51gsfJCWA4VQ3CqBoKjUgusUle1PR7i/5MonVOgatd5swa7D9s00UCR7Xd1jF/GEuKzHA56EQ==
   dependencies:
     "@babel/core" "^7.0.0"
     "@babel/plugin-syntax-dynamic-import" "^7.2.0"
