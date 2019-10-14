@@ -18,10 +18,14 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: npm install, build, and test
+    - name: npm install, build, test and generate coverage
       run: |
         yarn install
         yarn run build
-        yarn test
+        yarn run coverage
       env:
         CI: true
+
+    - uses: codecov/codecov-action@v1.0.2
+      with:
+        token: ${{secrets.CODECOV_TOKEN}}
