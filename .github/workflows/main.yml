@@ -26,6 +26,9 @@ jobs:
       env:
         CI: true
 
-    - uses: codecov/codecov-action@v1.0.2
-      with:
-        token: ${{secrets.CODECOV_TOKEN}}
+    - name: Upload coverage
+      if: success()
+      run: bash <(curl -s https://codecov.io/bash) -t $TOKEN -B $REF
+      env:
+        TOKEN: "${{ secrets.CODECOV_TOKEN }}"
+        REF: "${{ github.ref }}"
