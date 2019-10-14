@@ -1,10 +1,10 @@
 # HaikunatorJS
 
-[![Build Status](https://img.shields.io/travis/Atrox/haikunatorjs.svg?style=flat-square)](https://travis-ci.org/Atrox/haikunatorjs)
+[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fatrox%2Fhaikunatorjs%2Fbadge&style=flat-square)](https://actions-badge.atrox.dev/atrox/haikunatorjs/goto)
 [![Latest Version](https://img.shields.io/npm/v/haikunator.svg?style=flat-square)](https://www.npmjs.com/package/haikunator)
 [![Dependency Status](https://img.shields.io/david/atrox/haikunatorjs.svg?style=flat-square)](https://david-dm.org/atrox/haikunatorjs)
 [![devDependency Status](https://img.shields.io/david/dev/atrox/haikunatorjs.svg?style=flat-square)](https://david-dm.org/atrox/haikunatorjs#info=devDependencies)
-[![Coverage Status](https://img.shields.io/coveralls/Atrox/haikunatorjs.svg?style=flat-square)](https://coveralls.io/r/Atrox/haikunatorjs)
+[![Coverage Status](https://img.shields.io/codecov/c/github/Atrox/haikunatorjs.svg?style=flat-square)](https://codecov.io/gh/Atrox/haikunatorjs)
 
 Generate Heroku-like random names to use in your node applications.
 
