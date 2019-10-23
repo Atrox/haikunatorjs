@@ -890,11 +890,12 @@
     rollup "^1.1.0"
     rollup-plugin-babel "^4.3.0"
 
-"@pika/plugin-build-types@^0.6.0":
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/@pika/plugin-build-types/-/plugin-build-types-0.6.1.tgz#11f6ee70c10802092acf62b98ccb58dccc07f71d"
-  integrity sha512-3eM7JGsaZ0uE0RsDpFue4xYgRE+2UVE3yqJWSJAfQYQwNU6dlGjB7LTWSdHo3+0+YqL6/BD0o9Nb+7mpCSznOw==
+"@pika/plugin-build-types@^0.7.0":
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/@pika/plugin-build-types/-/plugin-build-types-0.7.0.tgz#0a3299ea6c3d0f8f1803ca439286669659213d67"
+  integrity sha512-VgQTyZKbYOLELVVNdt0n7FNr1vqEDYgngY1+6fBHcHJaInTRKKUh63jP4OItBjk8mrMssiY9Xuuq9aRUCycq7A==
   dependencies:
+    "@pika/types" "^0.7.0"
     execa "^2.0.0"
     mkdirp "^0.5.1"
     typescript "~3.4.0"
@@ -935,6 +936,11 @@
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/@pika/types/-/types-0.6.1.tgz#864b1803f3a95093b871ced387bb87779ebfc862"
   integrity sha512-1ZsOHGc0qJDofO+/98PfchHJqJjtfZL3liVGi4QZ28GtLmTVuZ4SUJFa5NgbsYawnrr//pdNOfx9JiaLFKpzrA==
+
+"@pika/types@^0.7.0":
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/@pika/types/-/types-0.7.0.tgz#b78890ffab94a340b366c59f3db84a809877a1f9"
+  integrity sha512-QFZSeMnLs6WUeNli8HU9pCoOjjxfwbix3qiydSY9qtHS0/lfW2yXU06jirfPaEKO0uYEU9TivwDROyeEGYnKXA==
 
 "@samverschueren/stream-to-observable@^0.3.0":
   version "0.3.0"
