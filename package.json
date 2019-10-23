@@ -36,7 +36,7 @@
     "@pika/plugin-build-types": "^0.6.0",
     "@pika/plugin-build-web": "^0.6.0",
     "@pika/plugin-bundle-web": "^0.6.0",
-    "@pika/plugin-standard-pkg": "^0.6.0",
+    "@pika/plugin-standard-pkg": "^0.7.0",
     "@types/jest": "^24.0.11",
     "@types/lodash.defaults": "^4.2.5",
     "@types/random-seed": "^0.3.3",
