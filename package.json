@@ -27,19 +27,19 @@
     "coverage": "jest --coverage"
   },
   "dependencies": {
+    "@types/random-seed": "^0.3.3",
     "lodash.defaults": "^4.2.0",
     "random-seed": "^0.3.0"
   },
   "devDependencies": {
     "@pika/pack": "^0.5.0",
-    "@pika/plugin-build-node": "^0.6.0",
-    "@pika/plugin-build-types": "^0.6.0",
-    "@pika/plugin-build-web": "^0.6.0",
-    "@pika/plugin-bundle-web": "^0.6.0",
-    "@pika/plugin-standard-pkg": "^0.6.0",
+    "@pika/plugin-build-node": "^0.8.1",
+    "@pika/plugin-build-types": "^0.8.1",
+    "@pika/plugin-build-web": "^0.8.1",
+    "@pika/plugin-bundle-web": "^0.8.1",
+    "@pika/plugin-standard-pkg": "^0.8.1",
     "@types/jest": "^24.0.11",
     "@types/lodash.defaults": "^4.2.5",
-    "@types/random-seed": "^0.3.3",
     "babel-plugin-add-module-exports": "^1.0.0",
     "jest": "^24.5.0",
     "standard": "^14.0.0",
