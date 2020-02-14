@@ -940,12 +940,12 @@
     rollup-plugin-node-resolve "^4.0.0"
     rollup-plugin-terser "^5.1.1"
 
-"@pika/plugin-standard-pkg@^0.8.1":
-  version "0.8.1"
-  resolved "https://registry.yarnpkg.com/@pika/plugin-standard-pkg/-/plugin-standard-pkg-0.8.1.tgz#07e21cd64ab42e73476cfd8a3aed2e35c5aa0aff"
-  integrity sha512-ZtIUtssKxHVv1wPrzwvCKPXhNeBuJ4s13WCKO1PL7zJwLq8lvxQsLvi47b4mmImrgXU88tIoqDbR1hUx8SgifQ==
+"@pika/plugin-standard-pkg@^0.9.2":
+  version "0.9.2"
+  resolved "https://registry.yarnpkg.com/@pika/plugin-standard-pkg/-/plugin-standard-pkg-0.9.2.tgz#9bae9ff151d46c852d39a423d7b80e11bb335d69"
+  integrity sha512-dr1H2fxUBCk1A77uxk9swwWklU5L2araTdgzpZO7ebIfbtp9KBfbEUxSGB/uLGlUIqueYvZo/xugpvivIlJFlA==
   dependencies:
-    "@pika/types" "^0.8.1"
+    "@pika/types" "^0.9.2"
     "@types/node" "^10.12.18"
     standard-pkg "^0.5.0"
 
@@ -958,6 +958,11 @@
   version "0.8.1"
   resolved "https://registry.yarnpkg.com/@pika/types/-/types-0.8.1.tgz#ac24b9a73e6712d638cbc124b6b1d6a1ade51bb0"
   integrity sha512-xQNGUA9CAHmbI6tO9weu088pX3PbrRgYZs68FXAqkJXodNyEy7Ju8LU191MZOS6MZreA1PElPd2evsgQ6Wl/cA==
+
+"@pika/types@^0.9.2":
+  version "0.9.2"
+  resolved "https://registry.yarnpkg.com/@pika/types/-/types-0.9.2.tgz#60ad16afe1293878232e28937d9007340c59ff7c"
+  integrity sha512-AzZTkHtM0A67+xMVhmSeJDteSMS+RfXGuM+/oVbo1PGD19ic7fuimv5b0TW8dKoZuxpVxiwVAai+sFRSNmfI3g==
 
 "@samverschueren/stream-to-observable@^0.3.0":
   version "0.3.0"
