@@ -49,6 +49,7 @@ export type Config = {
   tokenLength?: number
   tokenHex?: boolean
   tokenChars?: string
+  camelCase?: boolean
 }
 
 /**
@@ -58,7 +59,8 @@ const defaultOptions: Config = {
   delimiter: '-',
   tokenLength: 4,
   tokenHex: false,
-  tokenChars: '0123456789'
+  tokenChars: '0123456789',
+  camelCase: false
 }
 
 export default class Haikunator {
@@ -104,10 +106,11 @@ export default class Haikunator {
     }
 
     // create result and return
-    const sections = [adjective, noun, token]
-    return sections.filter(e => {
-      return !!e
-    }).join(config.delimiter)
+    const sections = [adjective, noun, token].filter(e => !!e)
+    if (config.camelCase) {
+      return sections.map(e => e && e.charAt(0).toUpperCase() + e.slice(1)).join("");
+    }
+    return sections.join(config.delimiter);
   }
 
   /**
