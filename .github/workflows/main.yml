@@ -8,27 +8,28 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [16.x, 17.x]
 
     steps:
-    - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
 
-    - name: npm install, build, test and generate coverage
-      run: |
-        npm install
-        npm run build
-        npm run coverage
-      env:
-        CI: true
+      - name: npm install, build, test and generate coverage
+        run: |
+          npm install
+          npm run build
+          npm run coverage
+        env:
+          CI: true
 
-    - name: Upload coverage
-      if: success()
-      run: bash <(curl -s https://codecov.io/bash) -t $TOKEN -B $REF
-      env:
-        TOKEN: "${{ secrets.CODECOV_TOKEN }}"
-        REF: "${{ github.ref }}"
+      - name: Upload coverage
+        if: success()
+        run: bash <(curl -s https://codecov.io/bash) -t $TOKEN -B $REF
+        env:
+          TOKEN: "${{ secrets.CODECOV_TOKEN }}"
+          REF: "${{ github.ref }}"
