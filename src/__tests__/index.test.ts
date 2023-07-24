@@ -79,3 +79,15 @@ test('custom adjectives & nouns', () => {
 
   expect(customHaikunator.haikunate()).toMatch(/adjective-noun-\d{4}$/)
 })
+
+test('camelCase', () => {
+  const customHaikunator = new Haikunator({
+    adjectives: ['adjective'],
+    nouns: ['noun'],
+    defaults: {
+      camelCase: true
+    }
+  })
+
+  expect(customHaikunator.haikunate()).toMatch(/AdjectiveNoun\d{4}$/)
+})
