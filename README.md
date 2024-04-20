@@ -2,6 +2,7 @@
 
 [![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fatrox%2Fhaikunatorjs%2Fbadge&style=flat-square)](https://actions-badge.atrox.dev/atrox/haikunatorjs/goto)
 [![Latest Version](https://img.shields.io/npm/v/haikunator.svg?style=flat-square)](https://www.npmjs.com/package/haikunator)
+[![JSR Version](https://img.shields.io/jsr/v/%40atrox/haikunator?style=flat-square)](https://jsr.io/@atrox/haikunator)
 [![Coverage Status](https://img.shields.io/codecov/c/github/Atrox/haikunatorjs.svg?style=flat-square)](https://codecov.io/gh/Atrox/haikunatorjs)
 
 Generate Heroku-like random names to use in your node applications.
@@ -12,13 +13,16 @@ Generate Heroku-like random names to use in your node applications.
 npm install --save haikunator
 ```
 
+```
+deno add @atrox/haikunator
+```
+
 ## Usage
 
 Haikunator is pretty simple.
 
 ```javascript
-var Haikunator = require('haikunator')
-// ES6: import Haikunator from 'haikunator'
+import Haikunator from 'haikunator'
 
 // Instantiate Haikunator without options
 var haikunator = new Haikunator()
@@ -67,7 +71,7 @@ haikunator.haikunate({ tokenLength: 0, delimiter: '' }) // => "billowingleaf"
 The following options are available:
 
 ```javascript
-var Haikunator = require('haikunator')
+import Haikunator from 'haikunator'
 
 var haikunator = new Haikunator({
   adjectives: ['custom', 'adjectives'],

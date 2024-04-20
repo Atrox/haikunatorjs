@@ -1,0 +1,8 @@
+{
+  "name": "@atrox/haikunator",
+  "version": "2.1.2",
+  "exports": "./src/index.ts",
+  "publish": {
+    "include": ["LICENSE", "README.md", "jsr.json", "src/**/*.ts"]
+  }
+}
